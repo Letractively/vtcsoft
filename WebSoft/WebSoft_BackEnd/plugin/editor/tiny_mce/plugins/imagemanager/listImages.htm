@@ -1,0 +1,11 @@
+﻿
+{#foreach $T as image}
+<div id="divItemImage" class="item {$T.image.Id}">
+    <div onclick="javascript:ImageManager.ShowPreviewImage('{$T.image.URL}','{$T.image.Name}');" class="name">
+        {$T.image.Name}
+    </div>
+    <div class="size">
+        {$T.image.Size}
+    </div>
+</div>
+{#/for}

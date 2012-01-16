@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="MasterPage_Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Register Src="~/UserControl/ucMenuPanel.ascx" TagName="ucMenuPanel" TagPrefix="uc1" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="/Styles/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/admin.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/blue.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/popup.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/Framework/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="/Scripts/Framework/jquery-jtemplates.js" type="text/javascript"></script>
+    <script src="/scripts/framework/jquery-ui-1.8.custom.min.js" type="text/javascript"></script>    
+    <script src="/Scripts/Utils/JSON.js" type="text/javascript"></script>
+    <script src="/Scripts/Framework/smooth.menu.js" type="text/javascript"></script>
+    <script src="/Scripts/Framework/smooth.table.js" type="text/javascript"></script>
+    <script src="/Scripts/Framework/smooth.js" type="text/javascript"></script>
+    <script src="/Scripts/Utils/Loading.js" type="text/javascript"></script>
+    <script src="/Scripts/Utils/Common.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table cellspacing="0" border="0" style="width: 100%">
+        <tr>
+            <td colspan="2">
+                <div id="header">
+                    <div id="logo">
+                        <h1>
+                            <a href="/index.htm" title="Hệ thống quản trị WEBSOFT">HỆ THỐNG QUẢN TRỊ WEBSOFT
+                            </a>
+                        </h1>
+                    </div>
+                    <ul id="user">
+                        <li class="first"><a href="">Tài khoản cá nhân</a></li>
+                        <li><a href="">Đổi mật khẩu</a></li>
+                        <li>
+                            <asp:LinkButton ID="btnLogout" runat="server" Text="Thoát" OnClick="btnLogout_Click"></asp:LinkButton>
+                        </li>
+                        <li><a href="http://vncop.com" title="http://vncop.com">Trang chủ</a></li>
+                    </ul>
+                    <div id="header-inner">
+                        <div id="home">
+                            <a href="" title="Home"></a>
+                        </div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolderMainAction" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <div class="corner tl">
+                        </div>
+                        <div class="corner tr">
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="height: 10px;">
+            </td>
+        </tr>
+        <tr id="content">
+            <td id="left" valign="top">
+                <uc1:ucMenuPanel ID="ucMenuPanel" runat="server" />
+            </td>
+            <td valign="top">
+                <div id="right" style="margin: 0;">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="height: 10px;">
+            </td>
+        </tr>
+        <tr id="footer">
+            <td colspan="2">
+                <p>
+                    Copyright © 2011 WebSoft. All Rights Reserved.</p>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

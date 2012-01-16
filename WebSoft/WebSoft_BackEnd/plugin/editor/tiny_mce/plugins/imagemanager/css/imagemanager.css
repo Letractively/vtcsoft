@@ -1,0 +1,34 @@
+﻿.imageCurrent{background-color:#00ADEF;color:#FFFFFF}
+#divlistImages .item{width: 100%; display: block; float: left; margin-top: 5px;}
+#divlistImages .item .name{float: left; width: 76%; text-align: left; padding-left: 5px; overflow: hidden;cursor:pointer;}
+#divlistImages .item .size{float: left; width: 20%; text-align: left; padding-left: 5px;}
+.content{width: 100%; float: left; margin-bottom: 5px;}
+.content .listImage{float: left; width: 48%; border: 1px  solid #999999; padding: 5px; height: 445px;}
+.content .listImage .type{display: block; width: 100%; float: left; height: 20px;}
+.content .listImage .type .text{float: left; width: 15%; text-align: right;}
+.content .listImage .type .option{float: left; width: 40%; padding-left: 5px;}
+.content .listImage .header{display: block; width: 100%; margin-top: 5px; float: left; border: 1px  solid #999999;background-color: #00ADEF; color: #FFFFFF; font-weight: bold;}
+.content .listImage .header .name{float: left; width: 72%; text-align: left; padding-left: 5px;}
+.content .listImage .header .size{float: left; width: 20%; text-align: left; padding-left: 5px;}
+.content .listImage .list {display: block; width: 100%; float: left; overflow: auto;height: 397px; border: 1px  solid #999999; border-top: none;}
+.content .previewPage{float: right; width: 48%; border: 1px  solid #999999; padding: 5px; height: 445px;}
+.content .previewPage .action{float: left; width: 100%; text-align: right; height: 20px;}
+.content .previewPage .action .del{float: right; margin-left: 5px;margin-top:-10px;}
+.content .previewPage .action .ins{ float: right;;margin-top:-10px;margin-right:-15px;}
+.content .previewPage .imagePreview{float: left; width: 377px; margin-top: 5px; border: 1px  solid #999999;height: 300px; padding: 0px;}
+.content .previewPage .imagePreview table{padding: 0px; margin: 0px; width: 373px; height: 316px;}
+.content .previewPage .imagePreview td{padding: 0px; width: 373px;float:left;}
+.content .previewPage .imagePreview img{max-height: 316px; max-width: 373px; border: none;}
+.content .previewPage .upload{float: left; width: 377px; margin-top: 5px; border: 1px  solid #999999;height: 110px;}
+.content .previewPage .upload .selectFile{float: left; width: 367px; padding: 5px; height: 23px; vertical-align: middle;padding-bottom:0px;}
+.content .previewPage .upload .selectFile .process{float: left; width: 280px; border: 1px solid #999999; height: 23px;}
+.content .previewPage .upload .selectFile .process .bg-process {background-color:#E9f4ff;height:23px;position:absolute;float:left;}
+.content .previewPage .upload .selectFile .process .bg-process .uploadbar{width: 280px; height: 23px; float: left;font-size:11pt;}
+.content .previewPage .upload .selectFile .process .bg-process .uploadbar .fileName{padding-left:5px; text-align: left; width: 145px; float: left;height:23px;margin-top:2px;}
+.content .previewPage .upload .selectFile .process .bg-process .uploadbar .message{text-align: right; width: 115px; float: right;padding-right:5px;height:23px;margin-top:2px;}
+.content .previewPage .upload .selectFile .select{float: left; width: 70px; padding-left: 5px;}
+.content .previewPage .upload .updateName {float:left;width:367px;padding:5px;padding-bottom:0px;padding-top:7px;}
+.content .previewPage .upload .updateName .name{float:left;width:65px;text-align:right;padding-right:5px;} 
+.content .previewPage .upload .updateName .fileName {float:left;width:223px;}
+.content .previewPage .upload .updateName .btnUpload {float:left;width:60px;padding-left:5px;margin-top:-7px; margin-left:5px;}
+.content .previewPage .upload .message {float:left;width:367px;padding:5px;padding-bottom:0px;font-size:14px;color:Red;text-align:center;}
