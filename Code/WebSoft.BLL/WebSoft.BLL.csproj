@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6EC16A1E-D222-435F-B0C4-F7045E12C9C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebSoft.BLL</RootNamespace>
+    <AssemblyName>WebSoft.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminBLL.cs" />
+    <Compile Include="FunctionBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityBLL\WebSoft.Entity.csproj">
+      <Project>{B1919809-945C-4B58-88A9-71A49EB6B326}</Project>
+      <Name>WebSoft.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VTCO.Config\VTCO.Config.csproj">
+      <Project>{12569E6A-05A4-402E-93B2-F593CCC41ADB}</Project>
+      <Name>VTCO.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VTCO.Library\VTCO.Library.csproj">
+      <Project>{62F3420D-2BEE-48A7-A2C1-0995A300E792}</Project>
+      <Name>VTCO.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VTCO.Utils\VTCO.Utils.csproj">
+      <Project>{CE0EC13A-CC68-4C7E-93D7-BFF4440EADAD}</Project>
+      <Name>VTCO.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebSoft.DAL\WebSoft.DAL.csproj">
+      <Project>{486C8B30-DEB9-42E9-85F1-212456AEFD61}</Project>
+      <Name>WebSoft.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebSoft.DBO\WebSoft.DBO.csproj">
+      <Project>{B26F72AB-BD0B-4EC3-9C08-34A23C640FE7}</Project>
+      <Name>WebSoft.DBO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

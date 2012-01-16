@@ -1,0 +1,55 @@
+﻿<table>
+    <thead>
+        <tr>
+            <th class="order">
+                STT
+            </th>
+            <th class="left">
+                Tên đăng nhập
+            </th>
+            <th class="left">
+                Họ và tên
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th class="last">
+                Chọn chức năng
+            </th>
+        </tr>        
+    </thead>
+    <tbody>
+        {#foreach $T as admin}
+        <tr>
+            <td class="order">
+                <span id="divSTT"></span>
+            </td>
+            <td>
+                <a title="Xem thông tin tài khoản" href="/pages/account/AdminInfo.aspx?Id={$T.admin.AdminId}">{$T.admin.UserName}</a>
+            </td>
+            <td>
+                {$T.admin.FullName}
+            </td>
+            <td class="status">
+                {COMMON.convertStatus($T.admin.Status)}
+            </td>
+            <td class="function last">
+                <div id="id{$T.admin.AdminId}">
+                    <select id="selAction" name="action" class="chooseFunction">
+                        <option selected="selected" value="">--[Chức năng]--</option>
+                        <option value="1">Xem thông tin</option>
+                        <option value="2">Thiết lập mật khẩu</option>
+                        <option value="3">Sửa</option>
+                        <option value="4">Xóa</option>
+                        {#if $T.admin.Status==1}
+                        <option value="5">Khóa</option>
+                        {#else}
+                        <option value="6">Kích hoạt</option>
+                        {#/if}
+                    </select>
+                </div>
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

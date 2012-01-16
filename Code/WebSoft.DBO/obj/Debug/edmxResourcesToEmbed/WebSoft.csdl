@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebSoftModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="WebSoftEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="WebSoftModel.Admin" />
+    <EntitySet Name="Advertisements" EntityType="WebSoftModel.Advertisement" />
+    <EntitySet Name="Carts" EntityType="WebSoftModel.Cart" />
+    <EntitySet Name="Categories" EntityType="WebSoftModel.Category" />
+    <EntitySet Name="Contacts" EntityType="WebSoftModel.Contact" />
+    <EntitySet Name="Customers" EntityType="WebSoftModel.Customer" />
+    <EntitySet Name="Functions" EntityType="WebSoftModel.Function" />
+    <EntitySet Name="Logs" EntityType="WebSoftModel.Log" />
+    <EntitySet Name="MailTemplates" EntityType="WebSoftModel.MailTemplate" />
+    <EntitySet Name="News" EntityType="WebSoftModel.News" />
+    <EntitySet Name="Orders" EntityType="WebSoftModel.Order" />
+    <EntitySet Name="Packages" EntityType="WebSoftModel.Package" />
+    <EntitySet Name="Permissions" EntityType="WebSoftModel.Permission" />
+    <EntitySet Name="Policies" EntityType="WebSoftModel.Policy" />
+    <EntitySet Name="Products" EntityType="WebSoftModel.Product" />
+    <EntitySet Name="Roles" EntityType="WebSoftModel.Role" />
+    <EntitySet Name="RoleFunctions" EntityType="WebSoftModel.RoleFunction" />
+    <EntitySet Name="Services" EntityType="WebSoftModel.Service" />
+    <EntitySet Name="Supports" EntityType="WebSoftModel.Support" />
+    <EntitySet Name="sysdiagrams" EntityType="WebSoftModel.sysdiagram" />
+    <EntitySet Name="TypePayments" EntityType="WebSoftModel.TypePayment" />
+    <EntitySet Name="Users" EntityType="WebSoftModel.User" />
+    <AssociationSet Name="FK_Log_Admin" Association="WebSoftModel.FK_Log_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Log" EntitySet="Logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permission_Admin" Association="WebSoftModel.FK_Permission_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Permission" EntitySet="Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_Product" Association="WebSoftModel.FK_Cart_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_User" Association="WebSoftModel.FK_Cart_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="WebSoftModel.FK_Product_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleFunction_Function" Association="WebSoftModel.FK_RoleFunction_Function">
+      <End Role="Function" EntitySet="Functions" />
+      <End Role="RoleFunction" EntitySet="RoleFunctions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product" Association="WebSoftModel.FK_Order_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_TypePayment" Association="WebSoftModel.FK_Order_TypePayment">
+      <End Role="TypePayment" EntitySet="TypePayments" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="WebSoftModel.FK_Order_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Package" Association="WebSoftModel.FK_Product_Package">
+      <End Role="Package" EntitySet="Packages" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permission_Role" Association="WebSoftModel.FK_Permission_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Permission" EntitySet="Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleFunction_Role" Association="WebSoftModel.FK_RoleFunction_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RoleFunction" EntitySet="RoleFunctions" />
+    </AssociationSet>
+    <FunctionImport Name="uspAdminGetListFunctionAccess" ReturnType="Collection(WebSoftModel.uspAdminGetListFunctionAccess_Result)">
+      <Parameter Name="AdminID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspAdminGetAll" ReturnType="Collection(WebSoftModel.uspAdminGetAll_Result)" />
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="YM" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Logs" Relationship="WebSoftModel.FK_Log_Admin" FromRole="Admin" ToRole="Log" />
+    <NavigationProperty Name="Permissions" Relationship="WebSoftModel.FK_Permission_Admin" FromRole="Admin" ToRole="Permission" />
+  </EntityType>
+  <EntityType Name="Advertisement">
+    <Key>
+      <PropertyRef Name="AdvertisementID" />
+    </Key>
+    <Property Name="AdvertisementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="URL" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Link" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="Int32" Nullable="false" />
+    <Property Name="FileType" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartID" />
+    </Key>
+    <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="WebSoftModel.FK_Cart_Product" FromRole="Cart" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="WebSoftModel.FK_Cart_User" FromRole="Cart" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ParrentID" Type="Int32" Nullable="false" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="WebSoftModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomersID" />
+    </Key>
+    <Property Name="CustomersID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomersName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Link" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Images" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="350" Unicode="true" FixedLength="false" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Function">
+    <Key>
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="FunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="URL" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ParrentID" Type="Int32" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RoleFunctions" Relationship="WebSoftModel.FK_RoleFunction_Function" FromRole="Function" ToRole="RoleFunction" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Action" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="LogDate" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Admin" Relationship="WebSoftModel.FK_Log_Admin" FromRole="Log" ToRole="Admin" />
+  </EntityType>
+  <EntityType Name="MailTemplate">
+    <Key>
+      <PropertyRef Name="MailTemplateID" />
+    </Key>
+    <Property Name="MailTemplateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Template" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsID" />
+    </Key>
+    <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Images" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderCode" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+    <Property Name="TotalMoney" Type="Int32" Nullable="false" />
+    <Property Name="TypePaymentID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="WebSoftModel.FK_Order_Product" FromRole="Order" ToRole="Product" />
+    <NavigationProperty Name="TypePayment" Relationship="WebSoftModel.FK_Order_TypePayment" FromRole="Order" ToRole="TypePayment" />
+    <NavigationProperty Name="User" Relationship="WebSoftModel.FK_Order_User" FromRole="Order" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="PackageID" />
+    </Key>
+    <Property Name="PackageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Images" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="WebSoftModel.FK_Product_Package" FromRole="Package" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="PermissionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Admin" Relationship="WebSoftModel.FK_Permission_Admin" FromRole="Permission" ToRole="Admin" />
+    <NavigationProperty Name="Role" Relationship="WebSoftModel.FK_Permission_Role" FromRole="Permission" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Policy">
+    <Key>
+      <PropertyRef Name="PolicyID" />
+    </Key>
+    <Property Name="PolicyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Content" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Images" Type="String" Nullable="false" MaxLength="350" Unicode="true" FixedLength="false" />
+    <Property Name="PercentDiscount" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="TypeProduct" Type="Int32" Nullable="false" />
+    <Property Name="IsHot" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+    <Property Name="PackageID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Carts" Relationship="WebSoftModel.FK_Cart_Product" FromRole="Product" ToRole="Cart" />
+    <NavigationProperty Name="Category" Relationship="WebSoftModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="Orders" Relationship="WebSoftModel.FK_Order_Product" FromRole="Product" ToRole="Order" />
+    <NavigationProperty Name="Package" Relationship="WebSoftModel.FK_Product_Package" FromRole="Product" ToRole="Package" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Permissions" Relationship="WebSoftModel.FK_Permission_Role" FromRole="Role" ToRole="Permission" />
+    <NavigationProperty Name="RoleFunctions" Relationship="WebSoftModel.FK_RoleFunction_Role" FromRole="Role" ToRole="RoleFunction" />
+  </EntityType>
+  <EntityType Name="RoleFunction">
+    <Key>
+      <PropertyRef Name="RoleFunctionID" />
+    </Key>
+    <Property Name="RoleFunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="FunctionID" Type="Int32" Nullable="false" />
+    <Property Name="Permission" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Function" Relationship="WebSoftModel.FK_RoleFunction_Function" FromRole="RoleFunction" ToRole="Function" />
+    <NavigationProperty Name="Role" Relationship="WebSoftModel.FK_RoleFunction_Role" FromRole="RoleFunction" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServicesID" />
+    </Key>
+    <Property Name="ServicesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Images" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Support">
+    <Key>
+      <PropertyRef Name="SupportID" />
+    </Key>
+    <Property Name="SupportID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Yahoo" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Skype" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TypePayment">
+    <Key>
+      <PropertyRef Name="TypePaymentID" />
+    </Key>
+    <Property Name="TypePaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Link" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Images" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="PayType" Type="Int32" Nullable="false" />
+    <Property Name="PayInfo" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="WebSoftModel.FK_Order_TypePayment" FromRole="TypePayment" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CardNo" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="YM" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Skype" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Carts" Relationship="WebSoftModel.FK_Cart_User" FromRole="User" ToRole="Cart" />
+    <NavigationProperty Name="Orders" Relationship="WebSoftModel.FK_Order_User" FromRole="User" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_Log_Admin">
+    <End Role="Admin" Type="WebSoftModel.Admin" Multiplicity="1" />
+    <End Role="Log" Type="WebSoftModel.Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permission_Admin">
+    <End Role="Admin" Type="WebSoftModel.Admin" Multiplicity="1" />
+    <End Role="Permission" Type="WebSoftModel.Permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Permission">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_Product">
+    <End Role="Product" Type="WebSoftModel.Product" Multiplicity="1" />
+    <End Role="Cart" Type="WebSoftModel.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_User">
+    <End Role="User" Type="WebSoftModel.User" Multiplicity="1" />
+    <End Role="Cart" Type="WebSoftModel.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Category">
+    <End Role="Category" Type="WebSoftModel.Category" Multiplicity="1" />
+    <End Role="Product" Type="WebSoftModel.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleFunction_Function">
+    <End Role="Function" Type="WebSoftModel.Function" Multiplicity="1" />
+    <End Role="RoleFunction" Type="WebSoftModel.RoleFunction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Function">
+        <PropertyRef Name="FunctionID" />
+      </Principal>
+      <Dependent Role="RoleFunction">
+        <PropertyRef Name="FunctionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product">
+    <End Role="Product" Type="WebSoftModel.Product" Multiplicity="1" />
+    <End Role="Order" Type="WebSoftModel.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_TypePayment">
+    <End Role="TypePayment" Type="WebSoftModel.TypePayment" Multiplicity="1" />
+    <End Role="Order" Type="WebSoftModel.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypePayment">
+        <PropertyRef Name="TypePaymentID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="TypePaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Role="User" Type="WebSoftModel.User" Multiplicity="1" />
+    <End Role="Order" Type="WebSoftModel.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Package">
+    <End Role="Package" Type="WebSoftModel.Package" Multiplicity="1" />
+    <End Role="Product" Type="WebSoftModel.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="PackageID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="PackageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permission_Role">
+    <End Role="Role" Type="WebSoftModel.Role" Multiplicity="1" />
+    <End Role="Permission" Type="WebSoftModel.Permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Permission">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleFunction_Role">
+    <End Role="Role" Type="WebSoftModel.Role" Multiplicity="1" />
+    <End Role="RoleFunction" Type="WebSoftModel.RoleFunction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="RoleFunction">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="uspAdminGetListFunctionAccess_Result">
+    <Property Type="Int32" Name="FunctionID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="URL" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ParrentID" Nullable="true" />
+    <Property Type="Int32" Name="Order" Nullable="false" />
+    <Property Type="Int32" Name="Status" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="uspAdminGetAll_Result">
+    <Property Type="Int32" Name="AdminID" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+    <Property Type="Boolean" Name="IsAdmin" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="YM" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Phone" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Status" Nullable="false" />
+  </ComplexType>
+</Schema>

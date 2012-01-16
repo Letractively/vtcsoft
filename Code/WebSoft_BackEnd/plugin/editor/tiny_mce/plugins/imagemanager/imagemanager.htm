@@ -1,0 +1,87 @@
+﻿<div style="width: 100%; height: 100%;">
+    <div id="divPopupBg" class="divPopup_bg">
+    </div>
+    <div id="divPopup_ImageManager" class="divPopup_border divPopup_wrapperMain" style="width: 810px;">
+        <div class="divPopup_wrapper">
+            <div style="height: 30px;" class="barpopup">
+                <div style="float: left;" class="titlepopup">
+                    Quản lý Ảnh
+                </div>
+                <div onclick="javascript:ImageManager.Close();" style="float: right;" class="close"
+                    title="Đóng">
+                    &nbsp;</div>
+                <div style="clear: both;">
+                </div>
+            </div>
+            <div class="content_popup">
+                <div class="popup_message">
+                    <div class="content">
+                        <div class="listImage">
+                            <div style="text-align:left;">
+                                Tên ảnh hoặc kích thước: <input type="text" id="id_inputSearch" style="width:150px; border:solid 1px #DDD" />
+                            </div>
+                            <div class="header" style="height: auto;">
+                                <div class="name">
+                                    Tên ảnh
+                                </div>
+                                <div class="size">
+                                    Size (Kb)
+                                </div>
+                            </div>
+                            <div id="divlistImages" class="list">
+                            </div>
+                        </div>
+                        <div class="previewPage">
+                            <div class="action">
+                                <ul id="btn_comment" class="nr" style="margin-top: -2px;">
+                                    <li><a onclick="javascript:ImageManager.Insert();" href="javascript:;">Chèn ảnh</a></li>
+                                    <li><a onclick="javascript:ImageManager.Delete();" href="javascript:;">Xóa</a></li>
+                                </ul>
+                                <div class="clear">
+                                </div>
+                            </div>
+                            <div class="imagePreview">
+                                <table>
+                                    <tr>
+                                        <td align="center" valign="middle">
+                                            <img id="imgCurrent" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="upload">
+                                <form id="formUploadImageEditor">
+                                <div class="updateName">
+                                    <div class="name">
+                                         Chọn ảnh: </div>
+                                        <input type="file" name="Filedata" id="Filedata" style="height:22px; float:left;" accept="image/*" />
+                                </div>
+                                <div class="clr"></div>
+                                <div class="updateName">
+                                    <div class="name">
+                                        Tên ảnh:</div>
+                                    <div class="fileName">
+                                        <input id="txtImageName" name="txtImageName" style="width: 217px;" type="text" />
+                                    </div>
+                                    <div class="btnUpload">
+                                        <ul id="btn_comment" class="nr" style="margin-top: 4px;">
+                                            <li><a id="btnUpload" href="javascript:;">Upload</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="message">
+                                    (Hỗ trợ các loại file: .jpg|.gif|.png. Dung lượng tối đa: 2M)
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both;">
+                    </div>
+                </div>
+                <div style="clear: both;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

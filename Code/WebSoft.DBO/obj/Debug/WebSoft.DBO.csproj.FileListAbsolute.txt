@@ -1,0 +1,6 @@
+E:\Projects\WebSoft\Code\WebSoft.DBO\bin\Debug\WebSoft.DBO.dll.config
+E:\Projects\WebSoft\Code\WebSoft.DBO\bin\Debug\WebSoft.DBO.dll
+E:\Projects\WebSoft\Code\WebSoft.DBO\bin\Debug\WebSoft.DBO.pdb
+E:\Projects\WebSoft\Code\WebSoft.DBO\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\WebSoft\Code\WebSoft.DBO\obj\Debug\WebSoft.DBO.dll
+E:\Projects\WebSoft\Code\WebSoft.DBO\obj\Debug\WebSoft.DBO.pdb

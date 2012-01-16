@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F58DAF5C-6FD2-4E9F-9CFA-E302F04801A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorkFlowBLL</RootNamespace>
+    <AssemblyName>WorkFlowBLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CtrAdmin.cs" />
+    <Compile Include="CtrFunction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{2470DB86-5BB1-4296-B8D6-85AEAFEA6569}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataContext\DataContext.csproj">
+      <Project>{C1C74D40-A786-4644-96C4-6E55E8198F7A}</Project>
+      <Name>DataContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityBLL\EntityBLL.csproj">
+      <Project>{B1919809-945C-4B58-88A9-71A49EB6B326}</Project>
+      <Name>EntityBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VTCO.Config\VTCO.Config.csproj">
+      <Project>{12569E6A-05A4-402E-93B2-F593CCC41ADB}</Project>
+      <Name>VTCO.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VTCO.Library\VTCO.Library.csproj">
+      <Project>{62F3420D-2BEE-48A7-A2C1-0995A300E792}</Project>
+      <Name>VTCO.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VTCO.Utils\VTCO.Utils.csproj">
+      <Project>{CE0EC13A-CC68-4C7E-93D7-BFF4440EADAD}</Project>
+      <Name>VTCO.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

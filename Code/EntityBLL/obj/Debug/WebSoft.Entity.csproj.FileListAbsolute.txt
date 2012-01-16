@@ -1,0 +1,7 @@
+E:\Projects\WebSoft\Code\EntityBLL\bin\Debug\EntityBLL.dll
+E:\Projects\WebSoft\Code\EntityBLL\bin\Debug\EntityBLL.pdb
+E:\Projects\WebSoft\Code\EntityBLL\bin\Debug\VTCO.Config.dll
+E:\Projects\WebSoft\Code\EntityBLL\bin\Debug\VTCO.Config.pdb
+E:\Projects\WebSoft\Code\EntityBLL\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\WebSoft\Code\EntityBLL\obj\Debug\EntityBLL.dll
+E:\Projects\WebSoft\Code\EntityBLL\obj\Debug\EntityBLL.pdb

@@ -1,0 +1,6 @@
+E:\Projects\WebSoft\Code\DataContext\bin\Debug\DataContext.dll
+E:\Projects\WebSoft\Code\DataContext\bin\Debug\DataContext.pdb
+E:\Projects\WebSoft\Code\DataContext\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\WebSoft\Code\DataContext\obj\Debug\DataContext.dll
+E:\Projects\WebSoft\Code\DataContext\obj\Debug\DataContext.pdb
+E:\Projects\WebSoft\Code\DataContext\bin\Debug\DataContext.dll.config
