@@ -1,0 +1,1840 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Alias="Self" Namespace="WebSoftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
+        <EntityContainer Name="WebSoftModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="WebSoftModel.Store.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Advertisement" EntityType="WebSoftModel.Store.Advertisement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cart" EntityType="WebSoftModel.Store.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="WebSoftModel.Store.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="WebSoftModel.Store.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="WebSoftModel.Store.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Function" EntityType="WebSoftModel.Store.Function" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="WebSoftModel.Store.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailTemplate" EntityType="WebSoftModel.Store.MailTemplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="WebSoftModel.Store.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="WebSoftModel.Store.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Package" EntityType="WebSoftModel.Store.Package" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="WebSoftModel.Store.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Policy" EntityType="WebSoftModel.Store.Policy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="WebSoftModel.Store.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="WebSoftModel.Store.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleFunction" EntityType="WebSoftModel.Store.RoleFunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="WebSoftModel.Store.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Support" EntityType="WebSoftModel.Store.Support" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="WebSoftModel.Store.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypePayment" EntityType="WebSoftModel.Store.TypePayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="WebSoftModel.Store.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cart_Product" Association="WebSoftModel.Store.FK_Cart_Product">
+            <End EntitySet="Product" Role="Product" />
+            <End EntitySet="Cart" Role="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_User" Association="WebSoftModel.Store.FK_Cart_User">
+            <End EntitySet="User" Role="User" />
+            <End EntitySet="Cart" Role="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_Admin" Association="WebSoftModel.Store.FK_Log_Admin">
+            <End EntitySet="Admin" Role="Admin" />
+            <End EntitySet="Log" Role="Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Product" Association="WebSoftModel.Store.FK_Order_Product">
+            <End EntitySet="Product" Role="Product" />
+            <End EntitySet="Order" Role="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypePayment" Association="WebSoftModel.Store.FK_Order_TypePayment">
+            <End EntitySet="TypePayment" Role="TypePayment" />
+            <End EntitySet="Order" Role="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_User" Association="WebSoftModel.Store.FK_Order_User">
+            <End EntitySet="User" Role="User" />
+            <End EntitySet="Order" Role="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Admin" Association="WebSoftModel.Store.FK_Permission_Admin">
+            <End EntitySet="Admin" Role="Admin" />
+            <End EntitySet="Permission" Role="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Role" Association="WebSoftModel.Store.FK_Permission_Role">
+            <End EntitySet="Role" Role="Role" />
+            <End EntitySet="Permission" Role="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="WebSoftModel.Store.FK_Product_Category">
+            <End EntitySet="Category" Role="Category" />
+            <End EntitySet="Product" Role="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Package" Association="WebSoftModel.Store.FK_Product_Package">
+            <End EntitySet="Package" Role="Package" />
+            <End EntitySet="Product" Role="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleFunction_Function" Association="WebSoftModel.Store.FK_RoleFunction_Function">
+            <End EntitySet="Function" Role="Function" />
+            <End EntitySet="RoleFunction" Role="RoleFunction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleFunction_Role" Association="WebSoftModel.Store.FK_RoleFunction_Role">
+            <End EntitySet="Role" Role="Role" />
+            <End EntitySet="RoleFunction" Role="RoleFunction" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="UserName" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Password" Nullable="false" MaxLength="20" Type="nvarchar" />
+          <Property Name="IsAdmin" Nullable="false" Type="bit" />
+          <Property Name="FullName" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="YM" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Phone" Nullable="false" MaxLength="15" Type="nvarchar" />
+          <Property Name="Email" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="CreateDate" Nullable="false" Type="datetime" />
+          <Property Name="Description" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="AdvertisementID" />
+          </Key>
+          <Property Name="AdvertisementID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="250" Type="nvarchar" />
+          <Property Name="URL" Nullable="false" MaxLength="250" Type="nvarchar" />
+          <Property Name="Link" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Order" Nullable="false" Type="int" />
+          <Property Name="Location" Nullable="false" Type="int" />
+          <Property Name="FileType" Nullable="false" Type="int" />
+          <Property Name="Status" Nullable="false" Type="bit" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="UserID" Nullable="false" Type="int" />
+          <Property Name="ProductID" Nullable="false" Type="int" />
+          <Property Name="Amount" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="ParrentID" Nullable="false" Type="int" />
+          <Property Name="Order" Nullable="false" Type="int" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="FullName" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Email" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Phone" Nullable="false" MaxLength="15" Type="nvarchar" />
+          <Property Name="Address" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="Title" Nullable="false" MaxLength="200" Type="nvarchar" />
+          <Property Name="Description" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Nullable="false" Type="datetime" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomersID" />
+          </Key>
+          <Property Name="CustomersID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="CustomersName" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Address" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Link" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Images" Nullable="false" MaxLength="250" Type="nvarchar" />
+          <Property Name="Description" Nullable="false" MaxLength="350" Type="nvarchar" />
+          <Property Name="Order" Nullable="false" Type="int" />
+          <Property Name="CreateDate" Nullable="false" Type="datetime" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Function">
+          <Key>
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="FunctionID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="URL" MaxLength="50" Type="nvarchar" />
+          <Property Name="ParrentID" Type="int" />
+          <Property Name="Order" Nullable="false" Type="int" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Action" Nullable="false" Type="int" />
+          <Property Name="Description" Nullable="false" MaxLength="100" Type="nvarchar" />
+          <Property Name="LogDate" Nullable="false" MaxLength="10" Type="nchar" />
+          <Property Name="AdminID" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="MailTemplate">
+          <Key>
+            <PropertyRef Name="MailTemplateID" />
+          </Key>
+          <Property Name="MailTemplateID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Key" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Template" Nullable="false" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Title" MaxLength="100" Type="nvarchar" />
+          <Property Name="Description" MaxLength="250" Type="nvarchar" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Images" MaxLength="250" Type="nvarchar" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="OrderCode" Nullable="false" MaxLength="20" Type="nvarchar" />
+          <Property Name="UserID" Nullable="false" Type="int" />
+          <Property Name="ProductID" Nullable="false" Type="int" />
+          <Property Name="OrderDate" Nullable="false" Type="datetime" />
+          <Property Name="TotalMoney" Nullable="false" Type="int" />
+          <Property Name="TypePaymentID" Nullable="false" Type="int" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="PackageID" />
+          </Key>
+          <Property Name="PackageID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Description" Nullable="false" MaxLength="250" Type="nvarchar" />
+          <Property Name="Type" Nullable="false" Type="int" />
+          <Property Name="Price" Nullable="false" Type="int" />
+          <Property Name="Images" Nullable="false" MaxLength="250" Type="nvarchar" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="AdminID" Nullable="false" Type="int" />
+          <Property Name="RoleID" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Policy">
+          <Key>
+            <PropertyRef Name="PolicyID" />
+          </Key>
+          <Property Name="PolicyID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Content" MaxLength="150" Type="nvarchar" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="CategoryID" Nullable="false" Type="int" />
+          <Property Name="ProductName" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Description" Nullable="false" MaxLength="250" Type="nvarchar" />
+          <Property Name="Content" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="Images" Nullable="false" MaxLength="350" Type="nvarchar" />
+          <Property Name="PercentDiscount" Nullable="false" Type="int" />
+          <Property Name="Price" Nullable="false" Type="int" />
+          <Property Name="TypeProduct" Nullable="false" Type="int" />
+          <Property Name="IsHot" Nullable="false" Type="bit" />
+          <Property Name="CreateDate" Nullable="false" Type="datetime" />
+          <Property Name="PackageID" Nullable="false" Type="int" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Description" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="RoleFunction">
+          <Key>
+            <PropertyRef Name="RoleFunctionID" />
+          </Key>
+          <Property Name="RoleFunctionID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="RoleID" Nullable="false" Type="int" />
+          <Property Name="FunctionID" Nullable="false" Type="int" />
+          <Property Name="Permission" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="ServicesID" />
+          </Key>
+          <Property Name="ServicesID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="Description" Nullable="false" MaxLength="250" Type="nvarchar" />
+          <Property Name="Content" Nullable="false" Type="nvarchar(max)" />
+          <Property Name="Images" Nullable="false" MaxLength="250" Type="nvarchar" />
+          <Property Name="Type" Nullable="false" Type="int" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="SupportID" />
+          </Key>
+          <Property Name="SupportID" Nullable="false" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Phone" Nullable="false" MaxLength="15" Type="nvarchar" />
+          <Property Name="Yahoo" Nullable="false" MaxLength="10" Type="nchar" />
+          <Property Name="Skype" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Type" Nullable="false" Type="int" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="principal_id" Nullable="false" Type="int" />
+          <Property Name="diagram_id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypePayment">
+          <Key>
+            <PropertyRef Name="TypePaymentID" />
+          </Key>
+          <Property Name="TypePaymentID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Description" Nullable="false" MaxLength="250" Type="nvarchar" />
+          <Property Name="Link" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="Images" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="PayType" Nullable="false" Type="int" />
+          <Property Name="PayInfo" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="Status" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="UserName" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Phone" Nullable="false" MaxLength="15" Type="nvarchar" />
+          <Property Name="Email" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="CardNo" Nullable="false" MaxLength="15" Type="nvarchar" />
+          <Property Name="Address" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="YM" MaxLength="50" Type="nvarchar" />
+          <Property Name="Skype" MaxLength="50" Type="nvarchar" />
+          <Property Name="CreateDate" Nullable="false" Type="datetime" />
+          <Property Name="Status" Nullable="false" MaxLength="10" Type="nchar" />
+        </EntityType>
+        <Association Name="FK_Cart_Product">
+          <End Type="WebSoftModel.Store.Product" Multiplicity="1" Role="Product" />
+          <End Type="WebSoftModel.Store.Cart" Multiplicity="*" Role="Cart" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_User">
+          <End Type="WebSoftModel.Store.User" Multiplicity="1" Role="User" />
+          <End Type="WebSoftModel.Store.Cart" Multiplicity="*" Role="Cart" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Log_Admin">
+          <End Type="WebSoftModel.Store.Admin" Multiplicity="1" Role="Admin" />
+          <End Type="WebSoftModel.Store.Log" Multiplicity="*" Role="Log" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Product">
+          <End Type="WebSoftModel.Store.Product" Multiplicity="1" Role="Product" />
+          <End Type="WebSoftModel.Store.Order" Multiplicity="*" Role="Order" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TypePayment">
+          <End Type="WebSoftModel.Store.TypePayment" Multiplicity="1" Role="TypePayment" />
+          <End Type="WebSoftModel.Store.Order" Multiplicity="*" Role="Order" />
+          <ReferentialConstraint>
+            <Principal Role="TypePayment">
+              <PropertyRef Name="TypePaymentID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TypePaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_User">
+          <End Type="WebSoftModel.Store.User" Multiplicity="1" Role="User" />
+          <End Type="WebSoftModel.Store.Order" Multiplicity="*" Role="Order" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Admin">
+          <End Type="WebSoftModel.Store.Admin" Multiplicity="1" Role="Admin" />
+          <End Type="WebSoftModel.Store.Permission" Multiplicity="*" Role="Permission" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Role">
+          <End Type="WebSoftModel.Store.Role" Multiplicity="1" Role="Role" />
+          <End Type="WebSoftModel.Store.Permission" Multiplicity="*" Role="Permission" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category">
+          <End Type="WebSoftModel.Store.Category" Multiplicity="1" Role="Category" />
+          <End Type="WebSoftModel.Store.Product" Multiplicity="*" Role="Product" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Package">
+          <End Type="WebSoftModel.Store.Package" Multiplicity="1" Role="Package" />
+          <End Type="WebSoftModel.Store.Product" Multiplicity="*" Role="Product" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="PackageID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="PackageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleFunction_Function">
+          <End Type="WebSoftModel.Store.Function" Multiplicity="1" Role="Function" />
+          <End Type="WebSoftModel.Store.RoleFunction" Multiplicity="*" Role="RoleFunction" />
+          <ReferentialConstraint>
+            <Principal Role="Function">
+              <PropertyRef Name="FunctionID" />
+            </Principal>
+            <Dependent Role="RoleFunction">
+              <PropertyRef Name="FunctionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleFunction_Role">
+          <End Type="WebSoftModel.Store.Role" Multiplicity="1" Role="Role" />
+          <End Type="WebSoftModel.Store.RoleFunction" Multiplicity="*" Role="RoleFunction" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="RoleFunction">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="uspAdminCheckLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userName" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+          <Parameter Name="return" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="uspAdminDeleteByAdminID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdminID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspAdminGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspAdminGetInfoByAdminID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdminID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspAdminGetInfoByAdminName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="uspAdminGetListFunctionAccess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdminID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspAdminInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="YM" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspAdminUpdateByAdminID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdminID" Type="int" Mode="In" />
+          <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="YM" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspAdvertisementDeleteByAdvertisementID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdvertisementID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspAdvertisementGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspAdvertisementGetInfoByAdvertisementID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdvertisementID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspAdvertisementInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="URL" Type="nvarchar" Mode="In" />
+          <Parameter Name="Link" Type="nvarchar" Mode="In" />
+          <Parameter Name="Order" Type="int" Mode="In" />
+          <Parameter Name="Location" Type="int" Mode="In" />
+          <Parameter Name="FileType" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="uspAdvertisementUpdateByAdvertisementID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdvertisementID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="URL" Type="nvarchar" Mode="In" />
+          <Parameter Name="Link" Type="nvarchar" Mode="In" />
+          <Parameter Name="Order" Type="int" Mode="In" />
+          <Parameter Name="Location" Type="int" Mode="In" />
+          <Parameter Name="FileType" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="uspCartDeleteByCartID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CartID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCartGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspCartGetInfoByCartID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CartID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCartInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="Amount" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCartUpdateByCartID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CartID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="Amount" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCategoryDeleteByCategoryID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCategoryGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspCategoryGetInfoByCategoryID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCategoryInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="ParrentID" Type="int" Mode="In" />
+          <Parameter Name="Order" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCategoryUpdateByCategoryID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="ParrentID" Type="int" Mode="In" />
+          <Parameter Name="Order" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspContactDeleteByContactID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ContactID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspContactGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspContactGetInfoByContactID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ContactID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspContactInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspContactUpdateByContactID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ContactID" Type="int" Mode="In" />
+          <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCustomersDeleteByCustomersID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomersID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCustomersGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspCustomersGetInfoByCustomersID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomersID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCustomersInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomersName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Link" Type="nvarchar" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Order" Type="int" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCustomersUpdateByCustomersID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomersID" Type="int" Mode="In" />
+          <Parameter Name="CustomersName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Link" Type="nvarchar" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Order" Type="int" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspFunctionDeleteByFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FunctionID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspFunctionGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspFunctionGetAllByTree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FunctionID" Type="int" Mode="In" />
+          <Parameter Name="AdminID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspFunctionGetChild" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ParrentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspFunctionGetInfoByFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FunctionID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspFunctionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="URL" Type="nvarchar" Mode="In" />
+          <Parameter Name="ParrentID" Type="int" Mode="In" />
+          <Parameter Name="Order" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspFunctionUpdateByFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FunctionID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="URL" Type="nvarchar" Mode="In" />
+          <Parameter Name="ParrentID" Type="int" Mode="In" />
+          <Parameter Name="Order" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspLogDeleteByLogID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LogID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspLogGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspLogGetInfoByLogID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LogID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspLogInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Action" Type="int" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="LogDate" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="uspLogUpdateByLogID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LogID" Type="int" Mode="In" />
+          <Parameter Name="Action" Type="int" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="LogDate" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="uspMailTemplateDeleteByMailTemplateID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MailTemplateID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspMailTemplateGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspMailTemplateGetInfoByMailTemplateID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MailTemplateID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspMailTemplateInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Key" Type="nvarchar" Mode="In" />
+          <Parameter Name="Template" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="uspMailTemplateUpdateByMailTemplateID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MailTemplateID" Type="int" Mode="In" />
+          <Parameter Name="Key" Type="nvarchar" Mode="In" />
+          <Parameter Name="Template" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="uspNewsDeleteByNewsID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NewsID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspNewsGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspNewsGetInfoByNewsID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NewsID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspNewsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Type" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspNewsUpdateByNewsID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NewsID" Type="int" Mode="In" />
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Type" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspOrderDeleteByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspOrderGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspOrderGetInfoByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspOrderInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+          <Parameter Name="TotalMoney" Type="int" Mode="In" />
+          <Parameter Name="TypePaymentID" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspOrderUpdateByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderID" Type="int" Mode="In" />
+          <Parameter Name="OrderCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+          <Parameter Name="TotalMoney" Type="int" Mode="In" />
+          <Parameter Name="TypePaymentID" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPackageDeleteByPackageID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PackageID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPackageGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspPackageGetInfoByPackageID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PackageID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPackageInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Type" Type="int" Mode="In" />
+          <Parameter Name="Price" Type="int" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPackageUpdateByPackageID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PackageID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Type" Type="int" Mode="In" />
+          <Parameter Name="Price" Type="int" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPermissionDeleteByPermissionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PermissionID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPermissionGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspPermissionGetInfoByPermissionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PermissionID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPermissionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdminID" Type="int" Mode="In" />
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPermissionUpdateByPermissionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PermissionID" Type="int" Mode="In" />
+          <Parameter Name="AdminID" Type="int" Mode="In" />
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPolicyDeleteByPolicyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PolicyID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPolicyGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspPolicyGetInfoByPolicyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PolicyID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPolicyInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Content" Type="nvarchar" Mode="In" />
+          <Parameter Name="Type" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspPolicyUpdateByPolicyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PolicyID" Type="int" Mode="In" />
+          <Parameter Name="Content" Type="nvarchar" Mode="In" />
+          <Parameter Name="Type" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspProductDeleteByProductID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspProductGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspProductGetInfoByProductID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspProductInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="ProductName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="PercentDiscount" Type="int" Mode="In" />
+          <Parameter Name="Price" Type="int" Mode="In" />
+          <Parameter Name="TypeProduct" Type="int" Mode="In" />
+          <Parameter Name="IsHot" Type="bit" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="PackageID" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspProductUpdateByProductID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="ProductName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="PercentDiscount" Type="int" Mode="In" />
+          <Parameter Name="Price" Type="int" Mode="In" />
+          <Parameter Name="TypeProduct" Type="int" Mode="In" />
+          <Parameter Name="IsHot" Type="bit" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="PackageID" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspRoleDeleteByRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspRoleFunctionDeleteByRoleFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleFunctionID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspRoleFunctionGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspRoleFunctionGetInfoByRoleFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleFunctionID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspRoleFunctionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+          <Parameter Name="FunctionID" Type="int" Mode="In" />
+          <Parameter Name="Permission" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspRoleFunctionUpdateByRoleFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleFunctionID" Type="int" Mode="In" />
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+          <Parameter Name="FunctionID" Type="int" Mode="In" />
+          <Parameter Name="Permission" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspRoleGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspRoleGetInfoByRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspRoleInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspRoleUpdateByRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspServicesDeleteByServicesID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ServicesID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspServicesGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspServicesGetInfoByServicesID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ServicesID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspServicesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="Type" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspServicesUpdateByServicesID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ServicesID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="Type" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSupportGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspSupportInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SupportID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="Yahoo" Type="nchar" Mode="In" />
+          <Parameter Name="Skype" Type="nvarchar" Mode="In" />
+          <Parameter Name="Type" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspTypePaymentDeleteByTypePaymentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TypePaymentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspTypePaymentGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspTypePaymentGetInfoByTypePaymentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TypePaymentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspTypePaymentInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Link" Type="nvarchar" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="PayType" Type="int" Mode="In" />
+          <Parameter Name="PayInfo" Type="nvarchar" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspTypePaymentUpdateByTypePaymentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TypePaymentID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Link" Type="nvarchar" Mode="In" />
+          <Parameter Name="Images" Type="nvarchar" Mode="In" />
+          <Parameter Name="PayType" Type="int" Mode="In" />
+          <Parameter Name="PayInfo" Type="nvarchar" Mode="In" />
+          <Parameter Name="Status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspUserDeleteByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspUserGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspUserGetInfoByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspUserInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="CardNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="YM" Type="nvarchar" Mode="In" />
+          <Parameter Name="Skype" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Status" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="uspUserUpdateByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="CardNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="YM" Type="nvarchar" Mode="In" />
+          <Parameter Name="Skype" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+          <Parameter Name="Status" Type="nchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebSoftModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="WebSoftEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="WebSoftModel.Admin" />
+          <EntitySet Name="Advertisements" EntityType="WebSoftModel.Advertisement" />
+          <EntitySet Name="Carts" EntityType="WebSoftModel.Cart" />
+          <EntitySet Name="Categories" EntityType="WebSoftModel.Category" />
+          <EntitySet Name="Contacts" EntityType="WebSoftModel.Contact" />
+          <EntitySet Name="Customers" EntityType="WebSoftModel.Customer" />
+          <EntitySet Name="Functions" EntityType="WebSoftModel.Function" />
+          <EntitySet Name="Logs" EntityType="WebSoftModel.Log" />
+          <EntitySet Name="MailTemplates" EntityType="WebSoftModel.MailTemplate" />
+          <EntitySet Name="News" EntityType="WebSoftModel.News" />
+          <EntitySet Name="Orders" EntityType="WebSoftModel.Order" />
+          <EntitySet Name="Packages" EntityType="WebSoftModel.Package" />
+          <EntitySet Name="Permissions" EntityType="WebSoftModel.Permission" />
+          <EntitySet Name="Policies" EntityType="WebSoftModel.Policy" />
+          <EntitySet Name="Products" EntityType="WebSoftModel.Product" />
+          <EntitySet Name="Roles" EntityType="WebSoftModel.Role" />
+          <EntitySet Name="RoleFunctions" EntityType="WebSoftModel.RoleFunction" />
+          <EntitySet Name="Services" EntityType="WebSoftModel.Service" />
+          <EntitySet Name="Supports" EntityType="WebSoftModel.Support" />
+          <EntitySet Name="sysdiagrams" EntityType="WebSoftModel.sysdiagram" />
+          <EntitySet Name="TypePayments" EntityType="WebSoftModel.TypePayment" />
+          <EntitySet Name="Users" EntityType="WebSoftModel.User" />
+          <AssociationSet Name="FK_Log_Admin" Association="WebSoftModel.FK_Log_Admin">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Log" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Admin" Association="WebSoftModel.FK_Permission_Admin">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Product" Association="WebSoftModel.FK_Cart_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_User" Association="WebSoftModel.FK_Cart_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="WebSoftModel.FK_Product_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleFunction_Function" Association="WebSoftModel.FK_RoleFunction_Function">
+            <End Role="Function" EntitySet="Functions" />
+            <End Role="RoleFunction" EntitySet="RoleFunctions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Product" Association="WebSoftModel.FK_Order_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypePayment" Association="WebSoftModel.FK_Order_TypePayment">
+            <End Role="TypePayment" EntitySet="TypePayments" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_User" Association="WebSoftModel.FK_Order_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Package" Association="WebSoftModel.FK_Product_Package">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Role" Association="WebSoftModel.FK_Permission_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleFunction_Role" Association="WebSoftModel.FK_RoleFunction_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="RoleFunction" EntitySet="RoleFunctions" />
+          </AssociationSet>
+          <FunctionImport Name="uspAdminGetListFunctionAccess" ReturnType="Collection(WebSoftModel.uspAdminGetListFunctionAccess_Result)">
+            <Parameter Name="AdminID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspAdminGetAll" ReturnType="Collection(WebSoftModel.uspAdminGetAll_Result)" />
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="YM" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Logs" Relationship="WebSoftModel.FK_Log_Admin" FromRole="Admin" ToRole="Log" />
+          <NavigationProperty Name="Permissions" Relationship="WebSoftModel.FK_Permission_Admin" FromRole="Admin" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="AdvertisementID" />
+          </Key>
+          <Property Name="AdvertisementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="URL" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Link" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="Int32" Nullable="false" />
+          <Property Name="FileType" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="WebSoftModel.FK_Cart_Product" FromRole="Cart" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="WebSoftModel.FK_Cart_User" FromRole="Cart" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ParrentID" Type="Int32" Nullable="false" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="WebSoftModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomersID" />
+          </Key>
+          <Property Name="CustomersID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomersName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Link" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Images" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="350" Unicode="true" FixedLength="false" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Function">
+          <Key>
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="FunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="URL" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ParrentID" Type="Int32" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RoleFunctions" Relationship="WebSoftModel.FK_RoleFunction_Function" FromRole="Function" ToRole="RoleFunction" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Action" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LogDate" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Admin" Relationship="WebSoftModel.FK_Log_Admin" FromRole="Log" ToRole="Admin" />
+        </EntityType>
+        <EntityType Name="MailTemplate">
+          <Key>
+            <PropertyRef Name="MailTemplateID" />
+          </Key>
+          <Property Name="MailTemplateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Template" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Images" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderCode" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+          <Property Name="TotalMoney" Type="Int32" Nullable="false" />
+          <Property Name="TypePaymentID" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="WebSoftModel.FK_Order_Product" FromRole="Order" ToRole="Product" />
+          <NavigationProperty Name="TypePayment" Relationship="WebSoftModel.FK_Order_TypePayment" FromRole="Order" ToRole="TypePayment" />
+          <NavigationProperty Name="User" Relationship="WebSoftModel.FK_Order_User" FromRole="Order" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="PackageID" />
+          </Key>
+          <Property Name="PackageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Images" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="WebSoftModel.FK_Product_Package" FromRole="Package" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Admin" Relationship="WebSoftModel.FK_Permission_Admin" FromRole="Permission" ToRole="Admin" />
+          <NavigationProperty Name="Role" Relationship="WebSoftModel.FK_Permission_Role" FromRole="Permission" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Policy">
+          <Key>
+            <PropertyRef Name="PolicyID" />
+          </Key>
+          <Property Name="PolicyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Images" Type="String" Nullable="false" MaxLength="350" Unicode="true" FixedLength="false" />
+          <Property Name="PercentDiscount" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="TypeProduct" Type="Int32" Nullable="false" />
+          <Property Name="IsHot" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="PackageID" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Carts" Relationship="WebSoftModel.FK_Cart_Product" FromRole="Product" ToRole="Cart" />
+          <NavigationProperty Name="Category" Relationship="WebSoftModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Orders" Relationship="WebSoftModel.FK_Order_Product" FromRole="Product" ToRole="Order" />
+          <NavigationProperty Name="Package" Relationship="WebSoftModel.FK_Product_Package" FromRole="Product" ToRole="Package" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Permissions" Relationship="WebSoftModel.FK_Permission_Role" FromRole="Role" ToRole="Permission" />
+          <NavigationProperty Name="RoleFunctions" Relationship="WebSoftModel.FK_RoleFunction_Role" FromRole="Role" ToRole="RoleFunction" />
+        </EntityType>
+        <EntityType Name="RoleFunction">
+          <Key>
+            <PropertyRef Name="RoleFunctionID" />
+          </Key>
+          <Property Name="RoleFunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="FunctionID" Type="Int32" Nullable="false" />
+          <Property Name="Permission" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Function" Relationship="WebSoftModel.FK_RoleFunction_Function" FromRole="RoleFunction" ToRole="Function" />
+          <NavigationProperty Name="Role" Relationship="WebSoftModel.FK_RoleFunction_Role" FromRole="RoleFunction" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ServicesID" />
+          </Key>
+          <Property Name="ServicesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Images" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="SupportID" />
+          </Key>
+          <Property Name="SupportID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Yahoo" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Skype" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypePayment">
+          <Key>
+            <PropertyRef Name="TypePaymentID" />
+          </Key>
+          <Property Name="TypePaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Link" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Images" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="PayType" Type="Int32" Nullable="false" />
+          <Property Name="PayInfo" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="WebSoftModel.FK_Order_TypePayment" FromRole="TypePayment" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CardNo" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="YM" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Skype" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Carts" Relationship="WebSoftModel.FK_Cart_User" FromRole="User" ToRole="Cart" />
+          <NavigationProperty Name="Orders" Relationship="WebSoftModel.FK_Order_User" FromRole="User" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Log_Admin">
+          <End Role="Admin" Type="WebSoftModel.Admin" Multiplicity="1" />
+          <End Role="Log" Type="WebSoftModel.Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Admin">
+          <End Role="Admin" Type="WebSoftModel.Admin" Multiplicity="1" />
+          <End Role="Permission" Type="WebSoftModel.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_Product">
+          <End Role="Product" Type="WebSoftModel.Product" Multiplicity="1" />
+          <End Role="Cart" Type="WebSoftModel.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_User">
+          <End Role="User" Type="WebSoftModel.User" Multiplicity="1" />
+          <End Role="Cart" Type="WebSoftModel.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category">
+          <End Role="Category" Type="WebSoftModel.Category" Multiplicity="1" />
+          <End Role="Product" Type="WebSoftModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleFunction_Function">
+          <End Role="Function" Type="WebSoftModel.Function" Multiplicity="1" />
+          <End Role="RoleFunction" Type="WebSoftModel.RoleFunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Function">
+              <PropertyRef Name="FunctionID" />
+            </Principal>
+            <Dependent Role="RoleFunction">
+              <PropertyRef Name="FunctionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Product">
+          <End Role="Product" Type="WebSoftModel.Product" Multiplicity="1" />
+          <End Role="Order" Type="WebSoftModel.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TypePayment">
+          <End Role="TypePayment" Type="WebSoftModel.TypePayment" Multiplicity="1" />
+          <End Role="Order" Type="WebSoftModel.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypePayment">
+              <PropertyRef Name="TypePaymentID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TypePaymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_User">
+          <End Role="User" Type="WebSoftModel.User" Multiplicity="1" />
+          <End Role="Order" Type="WebSoftModel.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Package">
+          <End Role="Package" Type="WebSoftModel.Package" Multiplicity="1" />
+          <End Role="Product" Type="WebSoftModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="PackageID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="PackageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Role">
+          <End Role="Role" Type="WebSoftModel.Role" Multiplicity="1" />
+          <End Role="Permission" Type="WebSoftModel.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleFunction_Role">
+          <End Role="Role" Type="WebSoftModel.Role" Multiplicity="1" />
+          <End Role="RoleFunction" Type="WebSoftModel.RoleFunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="RoleFunction">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="uspAdminGetListFunctionAccess_Result">
+          <Property Type="Int32" Name="FunctionID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="URL" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ParrentID" Nullable="true" />
+          <Property Type="Int32" Name="Order" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="uspAdminGetAll_Result">
+          <Property Type="Int32" Name="AdminID" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="IsAdmin" Nullable="false" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="YM" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebSoftModelStoreContainer" CdmEntityContainer="WebSoftEntities">
+          <EntitySetMapping Name="Admins"><EntityTypeMapping TypeName="WebSoftModel.Admin"><MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+            <ScalarProperty Name="FullName" ColumnName="FullName" />
+            <ScalarProperty Name="YM" ColumnName="YM" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Advertisements"><EntityTypeMapping TypeName="WebSoftModel.Advertisement"><MappingFragment StoreEntitySet="Advertisement">
+            <ScalarProperty Name="AdvertisementID" ColumnName="AdvertisementID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="URL" ColumnName="URL" />
+            <ScalarProperty Name="Link" ColumnName="Link" />
+            <ScalarProperty Name="Order" ColumnName="Order" />
+            <ScalarProperty Name="Location" ColumnName="Location" />
+            <ScalarProperty Name="FileType" ColumnName="FileType" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Carts"><EntityTypeMapping TypeName="WebSoftModel.Cart"><MappingFragment StoreEntitySet="Cart">
+            <ScalarProperty Name="CartID" ColumnName="CartID" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="Amount" ColumnName="Amount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Categories"><EntityTypeMapping TypeName="WebSoftModel.Category"><MappingFragment StoreEntitySet="Category">
+            <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="ParrentID" ColumnName="ParrentID" />
+            <ScalarProperty Name="Order" ColumnName="Order" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Contacts"><EntityTypeMapping TypeName="WebSoftModel.Contact"><MappingFragment StoreEntitySet="Contact">
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+            <ScalarProperty Name="FullName" ColumnName="FullName" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Customers"><EntityTypeMapping TypeName="WebSoftModel.Customer"><MappingFragment StoreEntitySet="Customers">
+            <ScalarProperty Name="CustomersID" ColumnName="CustomersID" />
+            <ScalarProperty Name="CustomersName" ColumnName="CustomersName" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="Link" ColumnName="Link" />
+            <ScalarProperty Name="Images" ColumnName="Images" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Order" ColumnName="Order" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Functions"><EntityTypeMapping TypeName="WebSoftModel.Function"><MappingFragment StoreEntitySet="Function">
+            <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="URL" ColumnName="URL" />
+            <ScalarProperty Name="ParrentID" ColumnName="ParrentID" />
+            <ScalarProperty Name="Order" ColumnName="Order" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Logs"><EntityTypeMapping TypeName="WebSoftModel.Log"><MappingFragment StoreEntitySet="Log">
+            <ScalarProperty Name="LogID" ColumnName="LogID" />
+            <ScalarProperty Name="Action" ColumnName="Action" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+            <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MailTemplates"><EntityTypeMapping TypeName="WebSoftModel.MailTemplate"><MappingFragment StoreEntitySet="MailTemplate">
+            <ScalarProperty Name="MailTemplateID" ColumnName="MailTemplateID" />
+            <ScalarProperty Name="Key" ColumnName="Key" />
+            <ScalarProperty Name="Template" ColumnName="Template" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="News"><EntityTypeMapping TypeName="WebSoftModel.News"><MappingFragment StoreEntitySet="News">
+            <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="Images" ColumnName="Images" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Orders"><EntityTypeMapping TypeName="WebSoftModel.Order"><MappingFragment StoreEntitySet="Order">
+            <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+            <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+            <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+            <ScalarProperty Name="TypePaymentID" ColumnName="TypePaymentID" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Packages"><EntityTypeMapping TypeName="WebSoftModel.Package"><MappingFragment StoreEntitySet="Package">
+            <ScalarProperty Name="PackageID" ColumnName="PackageID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="Price" ColumnName="Price" />
+            <ScalarProperty Name="Images" ColumnName="Images" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Permissions"><EntityTypeMapping TypeName="WebSoftModel.Permission"><MappingFragment StoreEntitySet="Permission">
+            <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+            <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+            <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Policies"><EntityTypeMapping TypeName="WebSoftModel.Policy"><MappingFragment StoreEntitySet="Policy">
+            <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Products"><EntityTypeMapping TypeName="WebSoftModel.Product"><MappingFragment StoreEntitySet="Product">
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+            <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="Images" ColumnName="Images" />
+            <ScalarProperty Name="PercentDiscount" ColumnName="PercentDiscount" />
+            <ScalarProperty Name="Price" ColumnName="Price" />
+            <ScalarProperty Name="TypeProduct" ColumnName="TypeProduct" />
+            <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="PackageID" ColumnName="PackageID" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Roles"><EntityTypeMapping TypeName="WebSoftModel.Role"><MappingFragment StoreEntitySet="Role">
+            <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RoleFunctions"><EntityTypeMapping TypeName="WebSoftModel.RoleFunction"><MappingFragment StoreEntitySet="RoleFunction">
+            <ScalarProperty Name="RoleFunctionID" ColumnName="RoleFunctionID" />
+            <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+            <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+            <ScalarProperty Name="Permission" ColumnName="Permission" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Services"><EntityTypeMapping TypeName="WebSoftModel.Service"><MappingFragment StoreEntitySet="Services">
+            <ScalarProperty Name="ServicesID" ColumnName="ServicesID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="Images" ColumnName="Images" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Supports"><EntityTypeMapping TypeName="WebSoftModel.Support"><MappingFragment StoreEntitySet="Support">
+            <ScalarProperty Name="SupportID" ColumnName="SupportID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Yahoo" ColumnName="Yahoo" />
+            <ScalarProperty Name="Skype" ColumnName="Skype" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="WebSoftModel.sysdiagram"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TypePayments"><EntityTypeMapping TypeName="WebSoftModel.TypePayment"><MappingFragment StoreEntitySet="TypePayment">
+            <ScalarProperty Name="TypePaymentID" ColumnName="TypePaymentID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Link" ColumnName="Link" />
+            <ScalarProperty Name="Images" ColumnName="Images" />
+            <ScalarProperty Name="PayType" ColumnName="PayType" />
+            <ScalarProperty Name="PayInfo" ColumnName="PayInfo" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Users"><EntityTypeMapping TypeName="WebSoftModel.User"><MappingFragment StoreEntitySet="User">
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="YM" ColumnName="YM" />
+            <ScalarProperty Name="Skype" ColumnName="Skype" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="uspAdminGetListFunctionAccess" FunctionName="WebSoftModel.Store.uspAdminGetListFunctionAccess">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WebSoftModel.uspAdminGetListFunctionAccess_Result">
+                <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="ParrentID" ColumnName="ParrentID" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspAdminGetAll" FunctionName="WebSoftModel.Store.uspAdminGetAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WebSoftModel.uspAdminGetAll_Result">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="YM" ColumnName="YM" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="WebSoft" ShowGrid="false" SnapToGrid="false">
+        <EntityTypeShape EntityType="WebSoftModel.Admin" Width="1.5" PointX="5.75" PointY="12.875" Height="3.0714322916666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Advertisement" Width="1.5" PointX="10.75" PointY="1.875" Height="2.2496956380208335" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Cart" Width="1.5" PointX="5.25" PointY="4" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Category" Width="1.5" PointX="0.75" PointY="4" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Contact" Width="1.5" PointX="10.75" PointY="4.875" Height="2.4140429687499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Customer" Width="1.5" PointX="10.75" PointY="8.875" Height="2.4140429687499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Function" Width="1.5" PointX="5.75" PointY="17.375" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Log" Width="1.5" PointX="8" PointY="15.5" Height="1.921000976562496" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.MailTemplate" Width="1.5" PointX="0.75" PointY="12.875" Height="1.4479589843749992" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.News" Width="1.5" PointX="2.75" PointY="12.875" Height="2.2496956380208317" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Order" Width="1.5" PointX="8.25" PointY="3.625" Height="2.7427376302083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Package" Width="1.5" PointX="0.75" PointY="0.875" Height="2.2496956380208317" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Permission" Width="1.5" PointX="8" PointY="9.5" Height="1.7566536458333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Policy" Width="1.5" PointX="10.75" PointY="12.875" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Product" Width="1.5" PointX="3" PointY="3.125" Height="3.7288216145833388" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Role" Width="1.5" PointX="5.75" PointY="9.5" Height="1.921000976562496" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.RoleFunction" Width="1.5" PointX="8" PointY="12.5" Height="1.921000976562496" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Service" Width="1.5" PointX="12.75" PointY="1.875" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.Support" Width="1.5" PointX="12.75" PointY="4.875" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.sysdiagram" Width="1.5" PointX="12.75" PointY="7.875" Height="1.7566536458333379" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.TypePayment" Width="1.5" PointX="6" PointY="0.75" Height="2.4140429687500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSoftModel.User" Width="1.5" PointX="3" PointY="8.5" Height="2.9070849609375067" IsExpanded="true" />
+        <AssociationConnector Association="WebSoftModel.FK_Log_Admin" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="15.723216145833334" />
+          <ConnectorPoint PointX="7.541666666666667" PointY="15.723216145833334" />
+          <ConnectorPoint PointX="7.708333333333333" PointY="15.723216145833334" />
+          <ConnectorPoint PointX="8" PointY="15.723216145833334" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_Permission_Admin" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="12.876152846153847" />
+          <ConnectorPoint PointX="7.625" PointY="12.501152846153847" />
+          <ConnectorPoint PointX="7.625" PointY="10.378326822916669" />
+          <ConnectorPoint PointX="8" PointY="10.378326822916669" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_Cart_Product" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.96050048828125" />
+          <ConnectorPoint PointX="5.25" PointY="4.96050048828125" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_Cart_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.96875" />
+          <ConnectorPoint PointX="5.46875" PointY="8.96875" />
+          <ConnectorPoint PointX="5.46875" PointY="5.9210009765625" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_Product_Category" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.96050048828125" />
+          <ConnectorPoint PointX="3" PointY="4.96050048828125" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_RoleFunction_Function" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="17.376152846153843" />
+          <ConnectorPoint PointX="7.625" PointY="17.001152846153843" />
+          <ConnectorPoint PointX="7.625" PointY="13.460500488281248" />
+          <ConnectorPoint PointX="8" PointY="13.460500488281248" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_Order_Product" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.1756193033854156" />
+          <ConnectorPoint PointX="5.385416666666667" PointY="6.1756193033854148" />
+          <ConnectorPoint PointX="5.552083333333333" PointY="6.1756193033854156" />
+          <ConnectorPoint PointX="8.25" PointY="6.1756193033854156" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_Order_TypePayment" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="1.9570214843750016" />
+          <ConnectorPoint PointX="9" PointY="1.9570214843750016" />
+          <ConnectorPoint PointX="9" PointY="3.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_Order_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.7031225000000063" />
+          <ConnectorPoint PointX="5.385416666666667" PointY="8.7031225000000063" />
+          <ConnectorPoint PointX="5.552083333333333" PointY="8.7031225000000063" />
+          <ConnectorPoint PointX="9.65625" PointY="8.7031225000000063" />
+          <ConnectorPoint PointX="9.65625" PointY="6.3677376302083317" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_Product_Package" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.9998478190104159" />
+          <ConnectorPoint PointX="3.75" PointY="1.9998478190104159" />
+          <ConnectorPoint PointX="3.75" PointY="3.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_Permission_Role" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="9.8766634114583347" />
+          <ConnectorPoint PointX="8" PointY="9.8766634114583347" />
+        </AssociationConnector>
+        <AssociationConnector Association="WebSoftModel.FK_RoleFunction_Role" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="11.358692284254804" />
+          <ConnectorPoint PointX="7.5660744349011217" PointY="11.674766719155924" />
+          <ConnectorPoint PointX="7.6839255650988791" PointY="11.792617849353682" />
+          <ConnectorPoint PointX="7.6875" PointY="11.796192284254804" />
+          <ConnectorPoint PointX="7.6875" PointY="12.948998244140622" />
+          <ConnectorPoint PointX="8" PointY="12.948998244140622" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

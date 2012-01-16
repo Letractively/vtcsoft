@@ -1,0 +1,15 @@
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\WebSoft.DAL.dll
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\WebSoft.DAL.pdb
+E:\Projects\WebSoft\Code\WebSoft.DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\WebSoft\Code\WebSoft.DAL\obj\Debug\WebSoft.DAL.dll
+E:\Projects\WebSoft\Code\WebSoft.DAL\obj\Debug\WebSoft.DAL.pdb
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\VTCO.Config.dll
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\VTCO.Utils.dll
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\WebSoft.DBO.dll
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\VTCO.Config.pdb
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\VTCO.Utils.pdb
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\WebSoft.DBO.pdb
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\VTCO.Library.dll
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\HtmlAgilityPack.dll
+E:\Projects\WebSoft\Code\WebSoft.DAL\bin\Debug\VTCO.Library.pdb

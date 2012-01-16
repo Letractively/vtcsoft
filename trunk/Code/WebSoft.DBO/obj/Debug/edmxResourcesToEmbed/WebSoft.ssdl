@@ -1,0 +1,969 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Alias="Self" Namespace="WebSoftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
+  <EntityContainer Name="WebSoftModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="WebSoftModel.Store.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Advertisement" EntityType="WebSoftModel.Store.Advertisement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cart" EntityType="WebSoftModel.Store.Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="WebSoftModel.Store.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="WebSoftModel.Store.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="WebSoftModel.Store.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Function" EntityType="WebSoftModel.Store.Function" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="WebSoftModel.Store.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MailTemplate" EntityType="WebSoftModel.Store.MailTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="WebSoftModel.Store.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="WebSoftModel.Store.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package" EntityType="WebSoftModel.Store.Package" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permission" EntityType="WebSoftModel.Store.Permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Policy" EntityType="WebSoftModel.Store.Policy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="WebSoftModel.Store.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="WebSoftModel.Store.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleFunction" EntityType="WebSoftModel.Store.RoleFunction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="WebSoftModel.Store.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Support" EntityType="WebSoftModel.Store.Support" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="WebSoftModel.Store.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypePayment" EntityType="WebSoftModel.Store.TypePayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="WebSoftModel.Store.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cart_Product" Association="WebSoftModel.Store.FK_Cart_Product">
+      <End EntitySet="Product" Role="Product" />
+      <End EntitySet="Cart" Role="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_User" Association="WebSoftModel.Store.FK_Cart_User">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="Cart" Role="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_Admin" Association="WebSoftModel.Store.FK_Log_Admin">
+      <End EntitySet="Admin" Role="Admin" />
+      <End EntitySet="Log" Role="Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product" Association="WebSoftModel.Store.FK_Order_Product">
+      <End EntitySet="Product" Role="Product" />
+      <End EntitySet="Order" Role="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_TypePayment" Association="WebSoftModel.Store.FK_Order_TypePayment">
+      <End EntitySet="TypePayment" Role="TypePayment" />
+      <End EntitySet="Order" Role="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="WebSoftModel.Store.FK_Order_User">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="Order" Role="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permission_Admin" Association="WebSoftModel.Store.FK_Permission_Admin">
+      <End EntitySet="Admin" Role="Admin" />
+      <End EntitySet="Permission" Role="Permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permission_Role" Association="WebSoftModel.Store.FK_Permission_Role">
+      <End EntitySet="Role" Role="Role" />
+      <End EntitySet="Permission" Role="Permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="WebSoftModel.Store.FK_Product_Category">
+      <End EntitySet="Category" Role="Category" />
+      <End EntitySet="Product" Role="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Package" Association="WebSoftModel.Store.FK_Product_Package">
+      <End EntitySet="Package" Role="Package" />
+      <End EntitySet="Product" Role="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleFunction_Function" Association="WebSoftModel.Store.FK_RoleFunction_Function">
+      <End EntitySet="Function" Role="Function" />
+      <End EntitySet="RoleFunction" Role="RoleFunction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleFunction_Role" Association="WebSoftModel.Store.FK_RoleFunction_Role">
+      <End EntitySet="Role" Role="Role" />
+      <End EntitySet="RoleFunction" Role="RoleFunction" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="UserName" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Password" Nullable="false" MaxLength="20" Type="nvarchar" />
+    <Property Name="IsAdmin" Nullable="false" Type="bit" />
+    <Property Name="FullName" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="YM" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Phone" Nullable="false" MaxLength="15" Type="nvarchar" />
+    <Property Name="Email" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="CreateDate" Nullable="false" Type="datetime" />
+    <Property Name="Description" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Advertisement">
+    <Key>
+      <PropertyRef Name="AdvertisementID" />
+    </Key>
+    <Property Name="AdvertisementID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Name" Nullable="false" MaxLength="250" Type="nvarchar" />
+    <Property Name="URL" Nullable="false" MaxLength="250" Type="nvarchar" />
+    <Property Name="Link" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Order" Nullable="false" Type="int" />
+    <Property Name="Location" Nullable="false" Type="int" />
+    <Property Name="FileType" Nullable="false" Type="int" />
+    <Property Name="Status" Nullable="false" Type="bit" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartID" />
+    </Key>
+    <Property Name="CartID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="UserID" Nullable="false" Type="int" />
+    <Property Name="ProductID" Nullable="false" Type="int" />
+    <Property Name="Amount" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="ParrentID" Nullable="false" Type="int" />
+    <Property Name="Order" Nullable="false" Type="int" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="FullName" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Email" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Phone" Nullable="false" MaxLength="15" Type="nvarchar" />
+    <Property Name="Address" Nullable="false" MaxLength="150" Type="nvarchar" />
+    <Property Name="Title" Nullable="false" MaxLength="200" Type="nvarchar" />
+    <Property Name="Description" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="CreateDate" Nullable="false" Type="datetime" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomersID" />
+    </Key>
+    <Property Name="CustomersID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="CustomersName" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Address" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Link" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Images" Nullable="false" MaxLength="250" Type="nvarchar" />
+    <Property Name="Description" Nullable="false" MaxLength="350" Type="nvarchar" />
+    <Property Name="Order" Nullable="false" Type="int" />
+    <Property Name="CreateDate" Nullable="false" Type="datetime" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Function">
+    <Key>
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="FunctionID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="URL" MaxLength="50" Type="nvarchar" />
+    <Property Name="ParrentID" Type="int" />
+    <Property Name="Order" Nullable="false" Type="int" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Action" Nullable="false" Type="int" />
+    <Property Name="Description" Nullable="false" MaxLength="100" Type="nvarchar" />
+    <Property Name="LogDate" Nullable="false" MaxLength="10" Type="nchar" />
+    <Property Name="AdminID" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="MailTemplate">
+    <Key>
+      <PropertyRef Name="MailTemplateID" />
+    </Key>
+    <Property Name="MailTemplateID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Key" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Template" Nullable="false" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsID" />
+    </Key>
+    <Property Name="NewsID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Title" MaxLength="100" Type="nvarchar" />
+    <Property Name="Description" MaxLength="250" Type="nvarchar" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Images" MaxLength="250" Type="nvarchar" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="OrderCode" Nullable="false" MaxLength="20" Type="nvarchar" />
+    <Property Name="UserID" Nullable="false" Type="int" />
+    <Property Name="ProductID" Nullable="false" Type="int" />
+    <Property Name="OrderDate" Nullable="false" Type="datetime" />
+    <Property Name="TotalMoney" Nullable="false" Type="int" />
+    <Property Name="TypePaymentID" Nullable="false" Type="int" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="PackageID" />
+    </Key>
+    <Property Name="PackageID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Description" Nullable="false" MaxLength="250" Type="nvarchar" />
+    <Property Name="Type" Nullable="false" Type="int" />
+    <Property Name="Price" Nullable="false" Type="int" />
+    <Property Name="Images" Nullable="false" MaxLength="250" Type="nvarchar" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="PermissionID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="AdminID" Nullable="false" Type="int" />
+    <Property Name="RoleID" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Policy">
+    <Key>
+      <PropertyRef Name="PolicyID" />
+    </Key>
+    <Property Name="PolicyID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Content" MaxLength="150" Type="nvarchar" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="CategoryID" Nullable="false" Type="int" />
+    <Property Name="ProductName" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Description" Nullable="false" MaxLength="250" Type="nvarchar" />
+    <Property Name="Content" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Images" Nullable="false" MaxLength="350" Type="nvarchar" />
+    <Property Name="PercentDiscount" Nullable="false" Type="int" />
+    <Property Name="Price" Nullable="false" Type="int" />
+    <Property Name="TypeProduct" Nullable="false" Type="int" />
+    <Property Name="IsHot" Nullable="false" Type="bit" />
+    <Property Name="CreateDate" Nullable="false" Type="datetime" />
+    <Property Name="PackageID" Nullable="false" Type="int" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Description" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="RoleFunction">
+    <Key>
+      <PropertyRef Name="RoleFunctionID" />
+    </Key>
+    <Property Name="RoleFunctionID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="RoleID" Nullable="false" Type="int" />
+    <Property Name="FunctionID" Nullable="false" Type="int" />
+    <Property Name="Permission" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="ServicesID" />
+    </Key>
+    <Property Name="ServicesID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Name" Nullable="false" MaxLength="150" Type="nvarchar" />
+    <Property Name="Description" Nullable="false" MaxLength="250" Type="nvarchar" />
+    <Property Name="Content" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Images" Nullable="false" MaxLength="250" Type="nvarchar" />
+    <Property Name="Type" Nullable="false" Type="int" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Support">
+    <Key>
+      <PropertyRef Name="SupportID" />
+    </Key>
+    <Property Name="SupportID" Nullable="false" Type="int" />
+    <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Phone" Nullable="false" MaxLength="15" Type="nvarchar" />
+    <Property Name="Yahoo" Nullable="false" MaxLength="10" Type="nchar" />
+    <Property Name="Skype" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Type" Nullable="false" Type="int" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="principal_id" Nullable="false" Type="int" />
+    <Property Name="diagram_id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TypePayment">
+    <Key>
+      <PropertyRef Name="TypePaymentID" />
+    </Key>
+    <Property Name="TypePaymentID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Description" Nullable="false" MaxLength="250" Type="nvarchar" />
+    <Property Name="Link" Nullable="false" MaxLength="150" Type="nvarchar" />
+    <Property Name="Images" Nullable="false" MaxLength="150" Type="nvarchar" />
+    <Property Name="PayType" Nullable="false" Type="int" />
+    <Property Name="PayInfo" Nullable="false" MaxLength="150" Type="nvarchar" />
+    <Property Name="Status" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="UserName" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Phone" Nullable="false" MaxLength="15" Type="nvarchar" />
+    <Property Name="Email" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="CardNo" Nullable="false" MaxLength="15" Type="nvarchar" />
+    <Property Name="Address" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="YM" MaxLength="50" Type="nvarchar" />
+    <Property Name="Skype" MaxLength="50" Type="nvarchar" />
+    <Property Name="CreateDate" Nullable="false" Type="datetime" />
+    <Property Name="Status" Nullable="false" MaxLength="10" Type="nchar" />
+  </EntityType>
+  <Association Name="FK_Cart_Product">
+    <End Type="WebSoftModel.Store.Product" Multiplicity="1" Role="Product" />
+    <End Type="WebSoftModel.Store.Cart" Multiplicity="*" Role="Cart" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_User">
+    <End Type="WebSoftModel.Store.User" Multiplicity="1" Role="User" />
+    <End Type="WebSoftModel.Store.Cart" Multiplicity="*" Role="Cart" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_Admin">
+    <End Type="WebSoftModel.Store.Admin" Multiplicity="1" Role="Admin" />
+    <End Type="WebSoftModel.Store.Log" Multiplicity="*" Role="Log" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product">
+    <End Type="WebSoftModel.Store.Product" Multiplicity="1" Role="Product" />
+    <End Type="WebSoftModel.Store.Order" Multiplicity="*" Role="Order" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_TypePayment">
+    <End Type="WebSoftModel.Store.TypePayment" Multiplicity="1" Role="TypePayment" />
+    <End Type="WebSoftModel.Store.Order" Multiplicity="*" Role="Order" />
+    <ReferentialConstraint>
+      <Principal Role="TypePayment">
+        <PropertyRef Name="TypePaymentID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="TypePaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Type="WebSoftModel.Store.User" Multiplicity="1" Role="User" />
+    <End Type="WebSoftModel.Store.Order" Multiplicity="*" Role="Order" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permission_Admin">
+    <End Type="WebSoftModel.Store.Admin" Multiplicity="1" Role="Admin" />
+    <End Type="WebSoftModel.Store.Permission" Multiplicity="*" Role="Permission" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Permission">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permission_Role">
+    <End Type="WebSoftModel.Store.Role" Multiplicity="1" Role="Role" />
+    <End Type="WebSoftModel.Store.Permission" Multiplicity="*" Role="Permission" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Permission">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Category">
+    <End Type="WebSoftModel.Store.Category" Multiplicity="1" Role="Category" />
+    <End Type="WebSoftModel.Store.Product" Multiplicity="*" Role="Product" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Package">
+    <End Type="WebSoftModel.Store.Package" Multiplicity="1" Role="Package" />
+    <End Type="WebSoftModel.Store.Product" Multiplicity="*" Role="Product" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="PackageID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="PackageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleFunction_Function">
+    <End Type="WebSoftModel.Store.Function" Multiplicity="1" Role="Function" />
+    <End Type="WebSoftModel.Store.RoleFunction" Multiplicity="*" Role="RoleFunction" />
+    <ReferentialConstraint>
+      <Principal Role="Function">
+        <PropertyRef Name="FunctionID" />
+      </Principal>
+      <Dependent Role="RoleFunction">
+        <PropertyRef Name="FunctionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleFunction_Role">
+    <End Type="WebSoftModel.Store.Role" Multiplicity="1" Role="Role" />
+    <End Type="WebSoftModel.Store.RoleFunction" Multiplicity="*" Role="RoleFunction" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="RoleFunction">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="uspAdminCheckLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+    <Parameter Name="return" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="uspAdminDeleteByAdminID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdminID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspAdminGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspAdminGetInfoByAdminID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdminID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspAdminGetInfoByAdminName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="uspAdminGetListFunctionAccess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdminID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspAdminInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="YM" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspAdminUpdateByAdminID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdminID" Type="int" Mode="In" />
+    <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="YM" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspAdvertisementDeleteByAdvertisementID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdvertisementID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspAdvertisementGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspAdvertisementGetInfoByAdvertisementID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdvertisementID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspAdvertisementInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="URL" Type="nvarchar" Mode="In" />
+    <Parameter Name="Link" Type="nvarchar" Mode="In" />
+    <Parameter Name="Order" Type="int" Mode="In" />
+    <Parameter Name="Location" Type="int" Mode="In" />
+    <Parameter Name="FileType" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="uspAdvertisementUpdateByAdvertisementID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdvertisementID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="URL" Type="nvarchar" Mode="In" />
+    <Parameter Name="Link" Type="nvarchar" Mode="In" />
+    <Parameter Name="Order" Type="int" Mode="In" />
+    <Parameter Name="Location" Type="int" Mode="In" />
+    <Parameter Name="FileType" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="uspCartDeleteByCartID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CartID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCartGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspCartGetInfoByCartID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CartID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCartInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="Amount" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCartUpdateByCartID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CartID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="Amount" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCategoryDeleteByCategoryID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCategoryGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspCategoryGetInfoByCategoryID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCategoryInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ParrentID" Type="int" Mode="In" />
+    <Parameter Name="Order" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCategoryUpdateByCategoryID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ParrentID" Type="int" Mode="In" />
+    <Parameter Name="Order" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspContactDeleteByContactID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ContactID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspContactGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspContactGetInfoByContactID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ContactID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspContactInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspContactUpdateByContactID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ContactID" Type="int" Mode="In" />
+    <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCustomersDeleteByCustomersID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomersID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCustomersGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspCustomersGetInfoByCustomersID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomersID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCustomersInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomersName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="Link" Type="nvarchar" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Order" Type="int" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspCustomersUpdateByCustomersID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomersID" Type="int" Mode="In" />
+    <Parameter Name="CustomersName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="Link" Type="nvarchar" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Order" Type="int" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspFunctionDeleteByFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FunctionID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspFunctionGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspFunctionGetAllByTree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FunctionID" Type="int" Mode="In" />
+    <Parameter Name="AdminID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspFunctionGetChild" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ParrentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspFunctionGetInfoByFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FunctionID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspFunctionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="URL" Type="nvarchar" Mode="In" />
+    <Parameter Name="ParrentID" Type="int" Mode="In" />
+    <Parameter Name="Order" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspFunctionUpdateByFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FunctionID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="URL" Type="nvarchar" Mode="In" />
+    <Parameter Name="ParrentID" Type="int" Mode="In" />
+    <Parameter Name="Order" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspLogDeleteByLogID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LogID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspLogGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspLogGetInfoByLogID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LogID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspLogInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="LogDate" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="uspLogUpdateByLogID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LogID" Type="int" Mode="In" />
+    <Parameter Name="Action" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="LogDate" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="uspMailTemplateDeleteByMailTemplateID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MailTemplateID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspMailTemplateGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspMailTemplateGetInfoByMailTemplateID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MailTemplateID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspMailTemplateInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Key" Type="nvarchar" Mode="In" />
+    <Parameter Name="Template" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="uspMailTemplateUpdateByMailTemplateID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MailTemplateID" Type="int" Mode="In" />
+    <Parameter Name="Key" Type="nvarchar" Mode="In" />
+    <Parameter Name="Template" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="uspNewsDeleteByNewsID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NewsID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspNewsGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspNewsGetInfoByNewsID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NewsID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspNewsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspNewsUpdateByNewsID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NewsID" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspOrderDeleteByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspOrderGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspOrderGetInfoByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspOrderInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="TotalMoney" Type="int" Mode="In" />
+    <Parameter Name="TypePaymentID" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspOrderUpdateByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderID" Type="int" Mode="In" />
+    <Parameter Name="OrderCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="TotalMoney" Type="int" Mode="In" />
+    <Parameter Name="TypePaymentID" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPackageDeleteByPackageID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPackageGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspPackageGetInfoByPackageID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPackageInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="int" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPackageUpdateByPackageID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="int" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPermissionDeleteByPermissionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PermissionID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPermissionGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspPermissionGetInfoByPermissionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PermissionID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPermissionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdminID" Type="int" Mode="In" />
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPermissionUpdateByPermissionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PermissionID" Type="int" Mode="In" />
+    <Parameter Name="AdminID" Type="int" Mode="In" />
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPolicyDeleteByPolicyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PolicyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPolicyGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspPolicyGetInfoByPolicyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PolicyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPolicyInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Content" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspPolicyUpdateByPolicyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PolicyID" Type="int" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspProductDeleteByProductID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspProductGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspProductGetInfoByProductID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspProductInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="ProductName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="PercentDiscount" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="int" Mode="In" />
+    <Parameter Name="TypeProduct" Type="int" Mode="In" />
+    <Parameter Name="IsHot" Type="bit" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="PackageID" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspProductUpdateByProductID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="ProductName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="PercentDiscount" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="int" Mode="In" />
+    <Parameter Name="TypeProduct" Type="int" Mode="In" />
+    <Parameter Name="IsHot" Type="bit" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="PackageID" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspRoleDeleteByRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspRoleFunctionDeleteByRoleFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleFunctionID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspRoleFunctionGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspRoleFunctionGetInfoByRoleFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleFunctionID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspRoleFunctionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+    <Parameter Name="FunctionID" Type="int" Mode="In" />
+    <Parameter Name="Permission" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspRoleFunctionUpdateByRoleFunctionID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleFunctionID" Type="int" Mode="In" />
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+    <Parameter Name="FunctionID" Type="int" Mode="In" />
+    <Parameter Name="Permission" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspRoleGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspRoleGetInfoByRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspRoleInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspRoleUpdateByRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspServicesDeleteByServicesID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ServicesID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspServicesGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspServicesGetInfoByServicesID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ServicesID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspServicesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspServicesUpdateByServicesID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ServicesID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspSupportGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspSupportInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SupportID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Yahoo" Type="nchar" Mode="In" />
+    <Parameter Name="Skype" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspTypePaymentDeleteByTypePaymentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TypePaymentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspTypePaymentGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspTypePaymentGetInfoByTypePaymentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TypePaymentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspTypePaymentInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Link" Type="nvarchar" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="PayType" Type="int" Mode="In" />
+    <Parameter Name="PayInfo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspTypePaymentUpdateByTypePaymentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TypePaymentID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Link" Type="nvarchar" Mode="In" />
+    <Parameter Name="Images" Type="nvarchar" Mode="In" />
+    <Parameter Name="PayType" Type="int" Mode="In" />
+    <Parameter Name="PayInfo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspUserDeleteByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspUserGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspUserGetInfoByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspUserInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="CardNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="YM" Type="nvarchar" Mode="In" />
+    <Parameter Name="Skype" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="uspUserUpdateByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="CardNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="YM" Type="nvarchar" Mode="In" />
+    <Parameter Name="Skype" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="nchar" Mode="In" />
+  </Function>
+</Schema>

@@ -1,0 +1,130 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_dataLayer", "01_dataLayer", "{0A75F8EB-CDCB-40D6-9EDF-CF385019664F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_presentLayer", "03_presentLayer", "{7F8F3754-6355-4F8E-BE50-E0796CB4A4DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_businessLayer", "02_businessLayer", "{455DDA02-CD68-4B66-9B45-416F4D2546FF}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSoft_BackEnd", "WebSoft_BackEnd", "{692E135C-E428-453A-B6D4-3423F5242C8F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{12569E6A-05A4-402E-93B2-F593CCC41ADB}|VTCO.Config.dll;{62F3420D-2BEE-48A7-A2C1-0995A300E792}|VTCO.Library.dll;{CE0EC13A-CC68-4C7E-93D7-BFF4440EADAD}|VTCO.Utils.dll;{B1919809-945C-4B58-88A9-71A49EB6B326}|EntityBLL.dll;{6EC16A1E-D222-435F-B0C4-F7045E12C9C6}|WebSoft.BLL.dll;{486C8B30-DEB9-42E9-85F1-212456AEFD61}|WebSoft.DAL.dll;{B26F72AB-BD0B-4EC3-9C08-34A23C640FE7}|WebSoft.DBO.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/WebSoft_BackEnd"
+		Debug.AspNetCompiler.PhysicalPath = "WebSoft_BackEnd\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSoft_BackEnd\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebSoft_BackEnd"
+		Release.AspNetCompiler.PhysicalPath = "WebSoft_BackEnd\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSoft_BackEnd\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2012"
+		VWDDynamicPort = "false"
+		VWDVirtualPath = "/"
+		DefaultWebSiteLanguage = "Visual C#"
+		StartServerOnDebug = "true"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSoft_FrontEnd", "WebSoft_FrontEnd", "{234EDAD3-7A4B-4B12-A463-86B7892692B2}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/WebSoft_FrontEnd"
+		Debug.AspNetCompiler.PhysicalPath = "WebSoft_FrontEnd\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSoft_FrontEnd\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebSoft_FrontEnd"
+		Release.AspNetCompiler.PhysicalPath = "WebSoft_FrontEnd\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebSoft_FrontEnd\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "5282"
+		VWDVirtualPath = "/"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_frameWork", "00_frameWork", "{C82668CA-5737-4096-9594-1EADB25CCCEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTCO.Library", "VTCO.Library\VTCO.Library.csproj", "{62F3420D-2BEE-48A7-A2C1-0995A300E792}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTCO.Config", "VTCO.Config\VTCO.Config.csproj", "{12569E6A-05A4-402E-93B2-F593CCC41ADB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTCO.Utils", "VTCO.Utils\VTCO.Utils.csproj", "{CE0EC13A-CC68-4C7E-93D7-BFF4440EADAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSoft.Entity", "EntityBLL\WebSoft.Entity.csproj", "{B1919809-945C-4B58-88A9-71A49EB6B326}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSoft.DAL", "WebSoft.DAL\WebSoft.DAL.csproj", "{486C8B30-DEB9-42E9-85F1-212456AEFD61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSoft.DBO", "WebSoft.DBO\WebSoft.DBO.csproj", "{B26F72AB-BD0B-4EC3-9C08-34A23C640FE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSoft.BLL", "WebSoft.BLL\WebSoft.BLL.csproj", "{6EC16A1E-D222-435F-B0C4-F7045E12C9C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{692E135C-E428-453A-B6D4-3423F5242C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{692E135C-E428-453A-B6D4-3423F5242C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{692E135C-E428-453A-B6D4-3423F5242C8F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{692E135C-E428-453A-B6D4-3423F5242C8F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{234EDAD3-7A4B-4B12-A463-86B7892692B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{234EDAD3-7A4B-4B12-A463-86B7892692B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{234EDAD3-7A4B-4B12-A463-86B7892692B2}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{234EDAD3-7A4B-4B12-A463-86B7892692B2}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{62F3420D-2BEE-48A7-A2C1-0995A300E792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F3420D-2BEE-48A7-A2C1-0995A300E792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F3420D-2BEE-48A7-A2C1-0995A300E792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F3420D-2BEE-48A7-A2C1-0995A300E792}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12569E6A-05A4-402E-93B2-F593CCC41ADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12569E6A-05A4-402E-93B2-F593CCC41ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12569E6A-05A4-402E-93B2-F593CCC41ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12569E6A-05A4-402E-93B2-F593CCC41ADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE0EC13A-CC68-4C7E-93D7-BFF4440EADAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE0EC13A-CC68-4C7E-93D7-BFF4440EADAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0EC13A-CC68-4C7E-93D7-BFF4440EADAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0EC13A-CC68-4C7E-93D7-BFF4440EADAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1919809-945C-4B58-88A9-71A49EB6B326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1919809-945C-4B58-88A9-71A49EB6B326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1919809-945C-4B58-88A9-71A49EB6B326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1919809-945C-4B58-88A9-71A49EB6B326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{486C8B30-DEB9-42E9-85F1-212456AEFD61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{486C8B30-DEB9-42E9-85F1-212456AEFD61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{486C8B30-DEB9-42E9-85F1-212456AEFD61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{486C8B30-DEB9-42E9-85F1-212456AEFD61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B26F72AB-BD0B-4EC3-9C08-34A23C640FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B26F72AB-BD0B-4EC3-9C08-34A23C640FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B26F72AB-BD0B-4EC3-9C08-34A23C640FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B26F72AB-BD0B-4EC3-9C08-34A23C640FE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EC16A1E-D222-435F-B0C4-F7045E12C9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC16A1E-D222-435F-B0C4-F7045E12C9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EC16A1E-D222-435F-B0C4-F7045E12C9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC16A1E-D222-435F-B0C4-F7045E12C9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{486C8B30-DEB9-42E9-85F1-212456AEFD61} = {0A75F8EB-CDCB-40D6-9EDF-CF385019664F}
+		{B26F72AB-BD0B-4EC3-9C08-34A23C640FE7} = {0A75F8EB-CDCB-40D6-9EDF-CF385019664F}
+		{B1919809-945C-4B58-88A9-71A49EB6B326} = {455DDA02-CD68-4B66-9B45-416F4D2546FF}
+		{6EC16A1E-D222-435F-B0C4-F7045E12C9C6} = {455DDA02-CD68-4B66-9B45-416F4D2546FF}
+		{692E135C-E428-453A-B6D4-3423F5242C8F} = {7F8F3754-6355-4F8E-BE50-E0796CB4A4DE}
+		{234EDAD3-7A4B-4B12-A463-86B7892692B2} = {7F8F3754-6355-4F8E-BE50-E0796CB4A4DE}
+		{62F3420D-2BEE-48A7-A2C1-0995A300E792} = {C82668CA-5737-4096-9594-1EADB25CCCEF}
+		{12569E6A-05A4-402E-93B2-F593CCC41ADB} = {C82668CA-5737-4096-9594-1EADB25CCCEF}
+		{CE0EC13A-CC68-4C7E-93D7-BFF4440EADAD} = {C82668CA-5737-4096-9594-1EADB25CCCEF}
+	EndGlobalSection
+EndGlobal

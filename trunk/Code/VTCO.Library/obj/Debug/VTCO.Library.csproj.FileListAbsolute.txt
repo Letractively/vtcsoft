@@ -1,0 +1,10 @@
+E:\ProjectAuShop\aushop\code\00_frameWork\VTCO.Library\obj\Debug\ResolveAssemblyReference.cache
+E:\ProjectAuShop\aushop\code\00_frameWork\VTCO.Library\bin\Debug\VTCO.Library.dll
+E:\ProjectAuShop\aushop\code\00_frameWork\VTCO.Library\bin\Debug\VTCO.Library.pdb
+E:\ProjectAuShop\aushop\code\00_frameWork\VTCO.Library\obj\Debug\VTCO.Library.dll
+E:\ProjectAuShop\aushop\code\00_frameWork\VTCO.Library\obj\Debug\VTCO.Library.pdb
+E:\Projects\WebSoft\Code\VTCO.Library\bin\Debug\VTCO.Library.dll
+E:\Projects\WebSoft\Code\VTCO.Library\bin\Debug\VTCO.Library.pdb
+E:\Projects\WebSoft\Code\VTCO.Library\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\WebSoft\Code\VTCO.Library\obj\Debug\VTCO.Library.dll
+E:\Projects\WebSoft\Code\VTCO.Library\obj\Debug\VTCO.Library.pdb
