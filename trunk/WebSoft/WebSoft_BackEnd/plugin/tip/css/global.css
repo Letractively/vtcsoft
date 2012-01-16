@@ -1,0 +1,39 @@
+
+
+/* ---------->>> jtip <<<---------------------------------------------------------------*/
+.hint
+{
+    background: url("/plugin/tip/images/pointer.gif") no-repeat scroll -10px 5px #FFFFCC;
+    border: 1px solid #CC9933;
+    margin-top: -4px;
+    padding: 10px 12px;
+    position: absolute;
+    max-width: 200px;
+    text-align:left;
+    font-size:11px;
+    font-family:Tahoma,sans-serif;
+}
+
+.hint .hint-pointer-right
+{
+    background: url("/plugin/tip/images/pointer-right.gif") no-repeat scroll left top transparent;
+    height: 19px;
+    left: -10px;
+    position: absolute;
+    top: 5px;
+    width: 10px;
+}
+.hint .hint-pointer-left
+{
+    background: url("/plugin/tip/images/pointer-left.gif") no-repeat scroll left top transparent;
+    height: 19px;
+    left: -10px;
+    position: absolute;
+    top: 5px;
+    width: 10px;
+}
+.hint ul li
+{
+    list-style-type:circle;
+    margin-left:3px;
+}
